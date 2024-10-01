@@ -3,9 +3,11 @@
 1.OPTION
 
 1.1.
-@HostAddress_mail = https://mail.ru
-OPTIONS  {{HostAddress_mail}} HTTP/1.1
 
+@HostAddress_mail = https://mail.ru
+
+OPTIONS  {{HostAddress_mail}} HTTP/1.1
+```
 Ответ:
 HTTP/1.1 400  
 Server: nginx/1.26.2
@@ -21,10 +23,10 @@ X-ETime: 0.001
 Content-Security-Policy: base-uri 'self'; default-src 'none'; form-action
 
 400 - HTTP-ответ с кодом состояния 400 (Bad Request) указывает на то, что сервер не может или не будет обрабатывать запрос из-за того, что он содержит неверный синтаксис.
-
+```
 1.2.
 OPTIONS  https://ya.ru HTTP/1.1
-
+```
 Ответ:
 HTTP/1.1 200 Ok
 Accept-CH: Sec-CH-UA-Platform-Version, Sec-CH-UA-Mobile, Sec-CH-UA-Model, Sec-CH-UA, Sec-CH-UA-Full-Version-List, Sec-CH-UA-WoW64, Sec-CH-UA-Arch, Sec-CH-UA-Bitness, Sec-CH-UA-Platform, Sec-CH-UA-Full-Version, Viewport-Width, DPR, Device-Memory, RTT, Downlink, ECT, Width
@@ -35,10 +37,10 @@ Content-Security-Policy: script-src 'unsafe-inline'
 200 - HTTP-ответ с кодом состояния 200 (OK) указывает на то, что запрос был успешно обработан сервером.
 
 Но методы доступа не реализованы
-
+```
 1.3.
 OPTIONS  https://vk.ru HTTP/1.1
-
+```
 Ответ:
 HTTP/1.1 418 
 Server: kittenx
@@ -51,12 +53,12 @@ X-Trace-Id: r1JqLIsEUg3gWFJ9lDz9Ui1zBqptVQ
 Server-Timing: tid;desc="r1JqLIsEUg3gWFJ9lDz9Ui1zBqptVQ"
 
 418 - HTTP-ответ с кодом состояния 418 (I'm a teapot) является шутливым кодом, который был определен в спецификации RFC 2324, известной как "April Fools' Day RFC". Сервер, представляющий собой чайник, отказывается заваривать чай, если к нему поступает запрос на это.
-
+```
 2.HEAD
 
 2.1.
 HEAD  https://vk.com HTTP/1.1
-
+```
 Ответ:
 HTTP/1.1 418 
 Server: kittenx
@@ -67,10 +69,10 @@ X-Frontend: front656600
 Access-Control-Expose-Headers: X-Frontend
 X-Trace-Id: a21R2BX_pN9GV7EGkMqiVHaIptoAwA
 Server-Timing: tid;desc="a21R2BX_pN9GV7EGkMqiVHaIptoAwA",front;dur=0.134
-
+```
 2.2.
 HEAD  https://apple.com HTTP/1.1
-
+```
 Ответ:
 HTTP/1.1 200 OK
 Server: Apple
@@ -90,10 +92,10 @@ Date: Tue, 01 Oct 2024 17:32:23 GMT
 X-Cache: TCP_MEM_HIT from a104-94-100-167.deploy.akamaitechnologies.com (AkamaiGHost/11.6.4-e26983a004e229b4ffa935b6e3b2fe8f) (-)
 Connection: keep-alive
 Vary: Accept-Encoding
-
+```
 2.3.
 HEAD  https://msn.com HTTP/1.1
-
+```
 Ответ:
 HTTP/1.1 404 Not Found
 Cache-Control: no-store, no-cache
@@ -112,12 +114,12 @@ X-MSEdge-Ref: Ref A: 12395C4E0EC449B29DDBE8EC31FD9427 Ref B: FRAEDGE1313 Ref C: 
 Date: Tue, 01 Oct 2024 17:33:26 GMT
 
 404 - HTTP-ответ с кодом состояния 404 (Not Found) указывает на то, что сервер не может найти запрашиваемый ресурс. 
-
+```
 3.GET, POST
 
 3.1.
 GET  https://yandex.ru HTTP/1.1
-
+```
 Ответ:
 HTTP/1.1 200 Ok
 Access-Control-Allow-Origin: yastatic.net
@@ -128,10 +130,10 @@ X-Yandex-Captcha: captcha
 X-Yandex-EU-Request: 0
 
 <!doctype html>
-
+```
 3.2.
 GET  https://google.com HTTP/1.1
-
+```
 Ответ:
 HTTP/1.1 200 OK
 Date: Tue, 01 Oct 2024 17:37:58 GMT
@@ -150,10 +152,10 @@ Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
 Transfer-Encoding: chunked
 
 <!doctype html>
-
+```
 3.3.
 GET  https://apple.com HTTP/1.1
-
+```
 Ответ:
 HTTP/1.1 200 OK
 Server: Apple
@@ -172,9 +174,10 @@ Date: Tue, 01 Oct 2024 17:38:28 GMT
 Content-Length: 39664
 X-Cache: TCP_HIT from a104-94-100-159.deploy.akamaitechnologies.com (AkamaiGHost/11.6.4-e26983a004e229b4ffa935b6e3b2fe8f) (-)
 Connection: keep-alive
-
+```
 3.4.
 POST  https://yandex.ru HTTP/1.1
+
 Content-Type: application/json
 
 {
@@ -182,7 +185,7 @@ Content-Type: application/json
   "body": "bar",
   "userId": 1
 }
-
+```
 Ответ:
 HTTP/1.1 302 Moved temporarily
 Accept-CH: Sec-CH-UA-Platform-Version, Sec-CH-UA-Mobile, Sec-CH-UA-Model, Sec-CH-UA, Sec-CH-UA-Full-Version-List, Sec-CH-UA-WoW64, Sec-CH-UA-Arch, Sec-CH-UA-Bitness, Sec-CH-UA-Platform, Sec-CH-UA-Full-Version, Viewport-Width, DPR, Device-Memory, RTT, Downlink, ECT, Width
@@ -196,9 +199,10 @@ X-Yandex-EU-Request: 0
 X-Yandex-Req-Id: 1727804401492696-8814306035148675694-balancer-l7leveler-kubr-yp-sas-202-BAL
 
 302 - HTTP-ответ с кодом состояния 302 (Found) указывает на временное перенаправление. Это означает, что запрашиваемый ресурс временно доступен по другому URL, и клиент должен выполнить новый запрос по указанному адресу.
-
+```
 3.5.
 POST  https://google.com HTTP/1.1
+
 Content-Type: application/json
 
 {
@@ -206,7 +210,7 @@ Content-Type: application/json
   "body": "bar",
   "userId": 1
 }
-
+```
 Ответ:
 HTTP/1.1 405 Method Not Allowed
 Content-Type: text/html; charset=UTF-8
@@ -217,7 +221,7 @@ Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
 Connection: close
 
 <!DOCTYPE html>
-
+```
 3.6.
 POST  https://apple.com HTTP/1.1
 Content-Type: application/json
@@ -227,7 +231,7 @@ Content-Type: application/json
   "body": "bar",
   "userId": 1
 }
-
+```
 Ответ:
 HTTP/1.1 301 Redirect
 Date: Tue, 01 Oct 2024 17:45:00 GMT
@@ -242,13 +246,16 @@ CDNUUID: 5e385463-b621-4b9b-8c7a-742002fe883a-14847189100
 Content-Length: 304
 
 <HTML>
-
+```
 4.GITHUB
+
+https://docs.github.com/en/rest/search?apiVersion=2022-11-28#search-users
 
 4.1.
 GET https://api.github.com/search/users?q=EduardAleksandrov
-Content-Type: application/json
 
+Content-Type: application/json
+```
 Ответ:
 HTTP/1.1 200 OK
 Date: Tue, 01 Oct 2024 18:02:09 GMT
@@ -275,12 +282,10 @@ X-RateLimit-Used: 1
 Accept-Ranges: bytes
 Content-Length: 375
 X-GitHub-Request-Id: 7A2B:18BC28:6C2BB7A:6D7253B:66FC3921
-
 {
   "total_count": 1,
   "incomplete_results": false,
   "items": [
-    
     {
       "login": "EduardAleksandrov",
       "id": 76213460,
@@ -304,11 +309,12 @@ X-GitHub-Request-Id: 7A2B:18BC28:6C2BB7A:6D7253B:66FC3921
     }
   ]
 }
-
+```
 4.2.
 GET https://api.github.com/search/users?q=in:login+repos:>=0&per_page=2&page=2&sort=repositories
-Content-Type: application/json
 
+Content-Type: application/json
+```
 Ответ:
 HTTP/1.1 200 OK
 Date: Tue, 01 Oct 2024 18:03:13 GMT
@@ -336,12 +342,10 @@ X-RateLimit-Used: 1
 Accept-Ranges: bytes
 Content-Length: 494
 X-GitHub-Request-Id: 35D7:18BC28:6C39B76:6D807F3:66FC3961
-
 {
   "total_count": 132844603,
   "incomplete_results": true,
   "items": [
-
     {
       "login": "experiment50",
       "id": 87437101,
@@ -363,7 +367,6 @@ X-GitHub-Request-Id: 35D7:18BC28:6C39B76:6D807F3:66FC3961
       "site_admin": false,
       "score": 1.0
     },
-
     {
       "login": "wp-plugins",
       "id": 2996849,
@@ -387,3 +390,4 @@ X-GitHub-Request-Id: 35D7:18BC28:6C39B76:6D807F3:66FC3961
     }
   ]
 }
+```
