@@ -1,0 +1,37 @@
+@HostAddress_mail = https://mail.ru
+
+###
+OPTIONS  {{HostAddress_mail}}/
+Accept: application/json
+
+###
+HEAD  https://mail.ru
+
+###
+GET https://api.vk.com/method/database.getFaculties?university_id=100&access_token=a&v=5.199
+
+### Отправка записи на стену группы
+POST https://api.vk.com/method/wall.post
+Content-Type: application/x-www-form-urlencoded
+
+owner_id=-YOUR_GROUP_ID
+message=Ваше сообщение
+access_token=YOUR_ACCESS_TOKEN
+v=5.131
+
+### Отправка записи на стену пользователя
+POST https://api.vk.com/method/wall.post
+Content-Type: application/x-www-form-urlencoded
+
+owner_id=USER_ID
+message=Ваше сообщение
+access_token=YOUR_ACCESS_TOKEN
+v=5.131
+
+#curl -X GET "https://api.vk.com/method/wall.get?owner_id=USER_ID&count=1&access_token=YOUR_ACCESS_TOKEN&v=5.131"
+
+### Получение информации о пользователе
+GET https://api.vk.com/method/users.get?user_id=me&fields=photo_max&access_token=YOUR_ACCESS_TOKEN&v=5.131
+
+
+
